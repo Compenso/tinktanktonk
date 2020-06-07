@@ -1,0 +1,10 @@
+The tic tac toe project starts here.
+
+6-6-20  Saturday evening post 7:34pm
+
+After attempting to get my bearings, I'm now ready to dive into the curl scripts.  It feels slightly overwhelming at this point, but only when I go beyond where I am.  With that, I'm attempting to stay within the step I'm on.  Here we go curl sciprts.
+
+First up : Sign up
+
+Updated the apiUrls n config.js
+development: 'http://localhost:4741'
