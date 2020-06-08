@@ -13,19 +13,41 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
-      <form>
-        <input name="credentials[email]" type="text" value="an@example.email">
-        <input name="credentials[password]" type="password" value="an example password">
-        <input name="credentials[password_confirmation]" type="password" value="an example password">
-        <button>Submit</button>
-      </form>
+      <p id='message'>What?</p>
 
-      <form>
-        <input name="credentials[email]" type="text" value="an@example.email">
-        <input name="credentials[password]" type="password" value="an example password">
-        <input name="credentials[password_confirmation]" type="password" value="an example password">
-        <button>Submit</button>
+    <section>
+      <form id="sign-up">
+        <h6>Sign up with email and password</h6>
+        <input name="credentials[email]" type="text" placeholder='email'>
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="password">
+        <button type="submit">Sign Up</button>
       </form>
+    </section>
+
+    <section>
+      <form id="sign-in">
+        <h6>Sign In</h6>
+        <input name="credentials[email]" type="text" placeholder="Your Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section>
+      <h6>Change Password</h6>
+        <form id="change-password">
+          <input type="password" name="passwords[old]" placeholder="Old password">
+          <input type="password" name="passwords[new]" placeholder="New password">
+          <button type="submit">Change Password</button>
+        </form>
+    </section>
+
+    <section>
+      <form id="sign-out">
+        <button type="submit">Sign Out</button>
+      </form>
+    </section>
 
     </body>
 </html>
