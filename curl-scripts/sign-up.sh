@@ -4,11 +4,11 @@ URL_PATH="/sign-up"
 curl "${API}/sign-up" \
   --include \
   --request POST \
-  --header "Content-type: application/json" \
+  --header "Content-Type: application/json" \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",
-      "passowrd": "'"${PASSWORD}"'",
+      "password": "'"${PASSWORD}"'",
       "password_confirmation": "'"${PASSWORD}"'"
     }
   }'

@@ -8,3 +8,12 @@ First up : Sign up
 
 Updated the apiUrls n config.js
 development: 'http://localhost:4741'
+
+
+6-7-20  Sunday morning into Sunday evening.
+
+After a little debug session with Areesh on Slack this morning, we figured out that the word passowrd should be spelled password.  This fixed all of the errors and I was able to run all of my curl-scripts successfully.  Yay!
+
+Now, I'm going to build up a wire frame and then put some html together.
+
+Story:  My first move is to get every piece on the screen and working.  Once that is done, I'll organize and adapt the content to a better design and format.
