@@ -1,6 +1,48 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-h5 {
-  align-self: inline;
+$alt-color: $cyan;
+$body-bg-color: #ffdddd;
+$font-color: $light;
+$basic-font-styling: 'Courier', serif;
+
+// because of the cascading file system, you could place code to overwrite whatever is coming in from bootstrap or any other place
+
+body {
+  background-color: $body-bg-color;
+  text-align: center;
 }
+
+h1 {
+  font-family: $basic-font-styling;
+}
+
+.box {
+  align-items: center;
+  background-color: $secondary;
+  border: 1px solid $white;
+  color: $font-color;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
+
+#gamename {
+  text-align: center;
+}
+
+.enroll {
+  text-align: right;
+}
+
+#sign-out {
+  margin: 20px 0 0 0;
+}
+
+// section {
+//   text-align: center;
+// }
