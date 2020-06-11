@@ -8,6 +8,7 @@
 
 // const gameEvents = require('./game/events')
 const playersEvents = require('./players/events')
+const gameEvents = require('./game/events')
 
 $(() => {
   console.log('This should show up first.')
@@ -15,4 +16,5 @@ $(() => {
   $('#sign-in').on('submit', playersEvents.onSignIn)
   $('#change-password').on('submit', playersEvents.onChangePassword)
   $('#sign-out').on('submit', playersEvents.onSignOut)
+  $('#newgame').on('click', gameEvents.onNewGame)
 })

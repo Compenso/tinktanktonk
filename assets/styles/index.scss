@@ -1,48 +1,135 @@
 @import '~bootstrap/scss/bootstrap';
 
-
 $alt-color: $cyan;
 $body-bg-color: #ffdddd;
 $font-color: $light;
 $basic-font-styling: 'Courier', serif;
 
-// because of the cascading file system, you could place code to overwrite whatever is coming in from bootstrap or any other place
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
 
 body {
-  background-color: $body-bg-color;
-  text-align: center;
-}
-
-h1 {
-  font-family: $basic-font-styling;
-}
-
-.box {
-  align-items: center;
-  background-color: $secondary;
-  border: 1px solid $white;
-  color: $font-color;
-  display: flex;
-  height: 80px;
+  color: #0b0b0b;
+  // display: flex;
+  font-family: sans-serif;
   justify-content: center;
 }
 
-.alt-color {
-  background-color: $alt-color;
-}
-
-#gamename {
+section {
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
 
-.enroll {
-  text-align: right;
+.container {
+  background: #f0f0f0;
+  margin: 100px;
+  padding: 100px;
+  border-radius: 25px;
+  justify-content: center;
+  height: 600px;
+  width: 600px;
 }
 
-#sign-out {
-  margin: 20px 0 0 0;
+.title {
+  text-align: center;
 }
 
-// section {
-//   text-align: center;
+.title span {
+  color: #fbfbfb;
+}
+
+.status-action {
+  display: flex;
+  margin-top: 25px;
+  font-size: 25px;
+  justify-content: space-around;
+  height: 30px;
+}
+
+.status span {
+  color: orange
+}
+
+.reset {
+  cursor: pointer;
+}
+
+// .reset: hover {
+//   color: #ffffff;
+// }
+
+.gamebox {
+  background: #ffffff;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-top: 50px;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+  // justify-content: center;
+}
+//
+// .xro {
+//   background: #ffffff;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   cursor: pointer;
+//   height: 200px;
+//   width: 200px;
+//   background: orange;
+// }
+
+.xro {
+    align-items: center;
+    background-color: $secondary;
+    border: 1px solid $white;
+    color: $font-color;
+    display: flex;
+    height: 80px;
+    width: 80px;
+    justify-content: center;
+  }
+
+// .x,
+// .o {
+//   cursor: auto;
+// }
+//
+// .X::after {
+//   content: '☠';
+//   font-size: 100px;
+// }
+//
+// .O::after {
+//   content: 'Ø';
+//   color: #bfbfbf;
+//   font-size: 120px;
+// }
+//
+// @media only screen and (max-width: 1024px) {
+//   .game-grid {
+//     marging-top: 25px;
+//     grid-gap: 10px;
+//   }
+//
+//   .game-cell {
+//     height: 150px;
+//     width: 150px;
+//   }
+//
+//   .x::after {
+//     font-size: 150px;
+//   }
+//
+//   .o::after {
+//     font-size: 170px;
+//   }
 // }
