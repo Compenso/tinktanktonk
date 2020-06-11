@@ -25,24 +25,24 @@ section {
 }
 
 .container {
-  background: #f0f0f0;
+  background: teal;
+  border-radius: 25px;
+  height: 600px;
+  justify-content: center;
   margin: 100px;
   padding: 100px;
-  border-radius: 25px;
-  justify-content: center;
-  height: 600px;
   width: 600px;
 }
 
-.title {
+.game-title {
   text-align: center;
 }
 
-.title span {
+.game-title span {
   color: #fbfbfb;
 }
 
-.status-action {
+.playerturn {
   display: flex;
   margin-top: 25px;
   font-size: 25px;
@@ -50,17 +50,9 @@ section {
   height: 30px;
 }
 
-.status span {
-  color: orange
-}
-
-.reset {
+.resetgame {
   cursor: pointer;
 }
-
-// .reset: hover {
-//   color: #ffffff;
-// }
 
 .gamebox {
   background: #ffffff;
@@ -73,21 +65,9 @@ section {
   height: 200px;
   width: 200px;
   cursor: pointer;
-  // justify-content: center;
 }
-//
-// .xro {
-//   background: #ffffff;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   cursor: pointer;
-//   height: 200px;
-//   width: 200px;
-//   background: orange;
-// }
 
-.xro {
+.xoro {
     align-items: center;
     background-color: $secondary;
     border: 1px solid $white;
@@ -98,38 +78,18 @@ section {
     justify-content: center;
   }
 
-// .x,
-// .o {
-//   cursor: auto;
-// }
-//
-// .X::after {
-//   content: '☠';
-//   font-size: 100px;
-// }
-//
-// .O::after {
-//   content: 'Ø';
-//   color: #bfbfbf;
-//   font-size: 120px;
-// }
-//
-// @media only screen and (max-width: 1024px) {
-//   .game-grid {
-//     marging-top: 25px;
-//     grid-gap: 10px;
-//   }
-//
-//   .game-cell {
-//     height: 150px;
-//     width: 150px;
-//   }
-//
-//   .x::after {
-//     font-size: 150px;
-//   }
-//
-//   .o::after {
-//     font-size: 170px;
-//   }
-// }
+.X,
+.O {
+  cursor: auto;
+}
+
+.X::after {
+  content: '☠';
+  font-size: 50px;
+}
+
+.O::after {
+  content: 'Ø';
+  color: #bfbfbf;
+  font-size: 70px;
+}

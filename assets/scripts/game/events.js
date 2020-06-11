@@ -19,40 +19,42 @@ const onNewGame = (event) => {
 }
 // class selectors.
 const playerTurn = document.querySelector('.playerturn')
-const resetGame = document.querySelector('.resetgame')
-const playBox = document.querySelector('.xro')
+// const resetGame = document.querySelector('.resetgame')
+const xOrO = document.querySelectorAll('.xoro')
+
+// The Game!
+const liveGame = true
+let turnX = true
+
+const xOrOClick = function (event) {
+  const classList = event.target.classList
+
+  if (!liveGame || classList[1] === 'X' || classList[1] === 'O') {
+    // turnX = !turnX
+  } else if (turnX === true) {
+    classList.add('X')
+    playGame()
+    // turnX = !turnX
+  } else {
+    classList.add('O')
+    playGame()
+  }
+}
 
 // board pieces 'x' or 'o'
 const xMark = '☠'
 const oMark = 'Ø'
 
-// The Game!
-let liveGame = true
-let playerNextTurn = true
-
-const letterToSymbol = (letter) => letter === 'X' ? xSymbol : oSymbol
-
-const playerWin = (letter) => {
-  winner = letter
-  if (letter === 'X') {
-    playerTurn.innerHTML = `${letterToSymbol(letter)} has won!`
-  } else {
-    playerTurn.innerHTML = `<span>
-      ${letterToSymbol(letter)} has won!
-      </span>`
-  }
-}
-
 const playGame = () => {
-  const one = playBox[0].classList[1]
-  const two = playBox[1].classList[1]
-  const three = playBox[2].classList[1]
-  const four = playBox[3].classList[1]
-  const five = playBox[4].classList[1]
-  const six = playBox[5].classList[1]
-  const seven = playBox[6].classList[1]
-  const eight = playBox[7].classList[1]
-  const nine = playBox[8].classList[1]
+  const one = xOrO[0].classList[3]
+  const two = xOrO[1].classList[3]
+  const three = xOrO[2].classList[3]
+  const four = xOrO[3].classList[3]
+  const five = xOrO[4].classList[3]
+  const six = xOrO[5].classList[3]
+  const seven = xOrO[6].classList[3]
+  const eight = xOrO[7].classList[3]
+  const nine = xOrO[8].classList[3]
 
   if (one && one === two && one === three) {
     playerWin(one)
@@ -71,40 +73,37 @@ const playGame = () => {
   } else if (three && three === six && three === nine) {
     playerWin(three)
   } else {
-    playerNextTurn = !playerNextTurn
-    if (playerNextTurn === 'X') {
-      playerTurn.innerHTML = `${xMark} is next`
+    turnX = !turnX
+    if (turnX === 'X') {
+      turnX.innerHTML = `${xMark} is next`
     } else {
-      playerTurn.innerHTML = `<span>${oMark} is next</span>`
+      turnX.innerHTML = `<span>${oMark} is next</span>`
     }
   }
 }
 
-const boxClick = (e) => {
-  const classList = e.target.classList
-  if(!playerNextTurn || classList[1] === 'X' || classList[1] === 'O') {
-    return
-  }
-  if(liveGame === true) {
-    classList.add('X')
-    playGame()
+const letterToSymbol = (letter) => letter === 'X' ? xMark : oMark
+
+const playerWin = (letter) => {
+  if (letter === 'X') {
+    playerTurn.innerHTML = `${letterToSymbol(letter)} has won!`
   } else {
-    classList.add('O')
-    playGame()
+    playerTurn.innerHTML = `<span>
+      ${letterToSymbol(letter)} has won!
+      </span>`
   }
 }
-
-for (const playBo of playBox) {
-    playBox.addEventListener('click', boxClick)
-  }
+//
+// const gameReset = function () {
+//   turnX = true
+//   playGame = true
+//   resetGame.reset()
+// }
 
 module.exports = {
   onNewGame: onNewGame,
-  playerTurn: playerTurn,
-  resetGame: resetGame,
-  playBox: playBox,
-  xMark: xMark,
-  yMark: oMark,
-  liveGame: liveGame,
-  playerNextTurn: playerNextTurn
+  xOrOClick: xOrOClick,
+  turnX: turnX,
+  letterToSymbol: letterToSymbol,
+  playerWin: playerWin
 }
