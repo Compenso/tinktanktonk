@@ -12,6 +12,69 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
+      <p id='message'>What?</p>
+  <section>
+    <section>
+      <form id="sign-up" class='enroll'>
+        <h6>Sign up with email and password</h6>
+        <input name="credentials[email]" type="text" placeholder='email'>
+        <input name="credentials[password]" type="password" placeholder="password">
+        <input name="credentials[password_confirmation]" type="password" placeholder="password">
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+
+    <section>
+      <form id="sign-in" class='enroll'>
+        <h6>Sign In</h6>
+        <input name="credentials[email]" type="text" placeholder="Your Email">
+        <input name="credentials[password]" type="password" placeholder="Password">
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section>
+      <form id="change-password" class='enroll'>
+        <h6>Change Password Ẍ</h6>
+        <input type="password" name="passwords[old]" placeholder="Old password">
+        <input type="password" name="passwords[new]" placeholder="New password">
+        <button type="submit">Change Password</button>
+      </form>
+    </section>
+
+    <section>
+      <form id="sign-out" class='enroll'>
+        <button type="submit">Sign Out</button>
+      </form>
+    </section>
+
+    <section>
+      <button id='newgame' type="submit">New Game</button>
+    </section>
+  </section>
+
+  <div class="container">
+    <h1 class="gametitle">Tic <em>Tac</em> Toe</h1>
+
+    <div class='play-info'>
+      <div class='playerturn'>☠ is next</div>
+      <div class='resetgame'>Reset</div>
+    </div>
+
+    <div class='gamebox'>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+      <div class="xoro"></div>
+    </div>
+
+  </div>
+
     </body>
 </html>

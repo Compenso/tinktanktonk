@@ -1,1 +1,95 @@
 @import '~bootstrap/scss/bootstrap';
+
+$alt-color: $cyan;
+$body-bg-color: #ffdddd;
+$font-color: $light;
+$basic-font-styling: 'Courier', serif;
+
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+body {
+  color: #0b0b0b;
+  // display: flex;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  background: teal;
+  border-radius: 25px;
+  height: 600px;
+  justify-content: center;
+  margin: 100px;
+  padding: 100px;
+  width: 600px;
+}
+
+.game-title {
+  text-align: center;
+}
+
+.game-title span {
+  color: #fbfbfb;
+}
+
+.playerturn {
+  display: flex;
+  margin-top: 25px;
+  font-size: 25px;
+  justify-content: space-around;
+  height: 30px;
+}
+
+.resetgame {
+  cursor: pointer;
+}
+
+.gamebox {
+  background: #ffffff;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-top: 50px;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.xoro {
+    align-items: center;
+    background-color: $secondary;
+    border: 1px solid $white;
+    color: $font-color;
+    display: flex;
+    height: 80px;
+    width: 80px;
+    justify-content: center;
+  }
+
+.X,
+.O {
+  cursor: auto;
+}
+
+.X::after {
+  content: '☠';
+  font-size: 50px;
+}
+
+.O::after {
+  content: 'Ø';
+  color: #bfbfbf;
+  font-size: 70px;
+}

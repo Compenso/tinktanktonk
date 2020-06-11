@@ -1,0 +1,19 @@
+The tic tac toe project starts here.
+
+6-6-20  Saturday evening post 7:34pm
+
+After attempting to get my bearings, I'm now ready to dive into the curl scripts.  It feels slightly overwhelming at this point, but only when I go beyond where I am.  With that, I'm attempting to stay within the step I'm on.  Here we go curl sciprts.
+
+First up : Sign up
+
+Updated the apiUrls n config.js
+development: 'http://localhost:4741'
+
+
+6-7-20  Sunday morning into Sunday evening.
+
+After a little debug session with Areesh on Slack this morning, we figured out that the word passowrd should be spelled password.  This fixed all of the errors and I was able to run all of my curl-scripts successfully.  Yay!
+
+Now, I'm going to build up a wire frame and then put some html together.
+
+Story:  My first move is to get every piece on the screen and working.  Once that is done, I'll organize and adapt the content to a better design and format.
