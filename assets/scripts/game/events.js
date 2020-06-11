@@ -46,15 +46,15 @@ const xMark = '☠'
 const oMark = 'Ø'
 
 const playGame = () => {
-  const one = xOrO[0].classList[3]
-  const two = xOrO[1].classList[3]
-  const three = xOrO[2].classList[3]
-  const four = xOrO[3].classList[3]
-  const five = xOrO[4].classList[3]
-  const six = xOrO[5].classList[3]
-  const seven = xOrO[6].classList[3]
-  const eight = xOrO[7].classList[3]
-  const nine = xOrO[8].classList[3]
+  const one = xOrO[0].classList[1]
+  const two = xOrO[1].classList[1]
+  const three = xOrO[2].classList[1]
+  const four = xOrO[3].classList[1]
+  const five = xOrO[4].classList[1]
+  const six = xOrO[5].classList[1]
+  const seven = xOrO[6].classList[1]
+  const eight = xOrO[7].classList[1]
+  const nine = xOrO[8].classList[1]
 
   if (one && one === two && one === three) {
     playerWin(one)
@@ -93,7 +93,7 @@ const playerWin = (letter) => {
       </span>`
   }
 }
-//
+
 // const gameReset = function () {
 //   turnX = true
 //   playGame = true
