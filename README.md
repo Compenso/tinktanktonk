@@ -1,20 +1,22 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+6-15-20  Still having some trouble understanding the game index store logic, but feel that I'm coming closer to a much deeper and detailed relationship.
 
-# browser-template
+Previously, I jumped into what I know, skipped what was confusing, and addressed what concerned me most.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Curl scripts were what I understood.  Mostly and/or partly.
 
-## Installation
+The game index store still confuses me, but it feels closer now to understanding.
 
-1. [Download](../../archive/master.zip) this template.
-    - **Do Not Fork And Clone**
-    - Click the "Clone or Download" button and select "Download Zip".
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
+The javascript concerned me the most.  I was having trouble learning how js worked and how to use it.  Conceptually I thought it was easy, but syntactually I wasn't tracking.
+
+So, from the near top.
+
+6-16-20
+Going to work through the reading and the game.store.index items in order to recall a game.
+
+6-20-20
+Most of the ajax call setup is done.  Game data is being stored for each user.  Clicks are being counted.
+I need to write lines for the rest of the get games data and then build out some checks for the boxes so they can't overwrite each other.  
+
 1. Empty [`README.md`](README.md) and fill with your own content.
 1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
     your project.

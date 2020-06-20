@@ -6,7 +6,6 @@ const signUpSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('User Created')
   $('#message').show()
-  $('#message').removeClass().addClass('success')
 
   const newUser = (`
     <h4>userName: ${response.email}</h4>
@@ -26,27 +25,34 @@ const signUpFail = function () {
 const onSignInSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Successful sign in')
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#password-change').show()
+  $('.board').show()
   store.user = response.user
 }
 
 const onSignInFail = function () {
   $('form').trigger('reset')
-  $('#message').text('Failed to sign in')
+  $('#message').text('Check your password')
 }
 
 const onChangePasswordSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Password Updated')
+  $('#change-password').hide()
 }
 
 const onChangePasswordFail = function () {
   $('form').trigger('reset')
-  $('#message').text('password update failed')
+  $('#message').text('Check you password')
 }
 
 const onSignOutSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Goodbye!')
+  $('#sign-in').show()
+  $('#change-password').hide()
   // $('#message').addClass('success')
   store.user = null
 }
