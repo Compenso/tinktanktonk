@@ -9,7 +9,6 @@ const onNewGame = (event) => {
 
   const form = event.target
   const data = getFormFields(form)
-
   console.log(data)
   console.log('New game in the events.')
 
@@ -17,93 +16,154 @@ const onNewGame = (event) => {
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)
 }
-// class selectors.
-const playerTurn = document.querySelector('.playerturn')
-// const resetGame = document.querySelector('.resetgame')
-const xOrO = document.querySelectorAll('.xoro')
 
-// The Game!
-const liveGame = true
-let turnX = true
+const onGameUpdate = (event) => {
+  event.preventDefault()
 
-const xOrOClick = function (event) {
-  const classList = event.target.classList
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data, 'didjs updotttt the game?')
 
-  if (!liveGame || classList[1] === 'X' || classList[1] === 'O') {
-    // turnX = !turnX
-  } else if (turnX === true) {
-    classList.add('X')
-    playGame()
-    // turnX = !turnX
-  } else {
-    classList.add('O')
-    playGame()
-  }
+  api.gameUpdate()
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFail)
 }
 
-// board pieces 'x' or 'o'
-const xMark = '☠'
-const oMark = 'Ø'
+const onGamesIndex = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  console.log('Get games data.')
 
-const playGame = () => {
-  const one = xOrO[0].classList[1]
-  const two = xOrO[1].classList[1]
-  const three = xOrO[2].classList[1]
-  const four = xOrO[3].classList[1]
-  const five = xOrO[4].classList[1]
-  const six = xOrO[5].classList[1]
-  const seven = xOrO[6].classList[1]
-  const eight = xOrO[7].classList[1]
-  const nine = xOrO[8].classList[1]
+  api.gamesIndex()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFail)
+}
 
-  if (one && one === two && one === three) {
-    playerWin(one)
-  } else if (four && four === five && four === six) {
-    playerWin(four)
-  } else if (seven && seven === eight && seven === nine) {
-    playerWin(seven)
-  } else if (one && one === five && one === nine) {
-    playerWin(one)
-  } else if (seven && seven === five && seven === three) {
-    playerWin(seven)
-  } else if (one && one === four && one === seven) {
-    playerWin(one)
-  } else if (two && two === five && two === eight) {
-    playerWin(two)
-  } else if (three && three === six && three === nine) {
-    playerWin(three)
-  } else {
-    turnX = !turnX
-    if (turnX === 'X') {
-      turnX.innerHTML = `${xMark} is next`
-    } else {
-      turnX.innerHTML = `<span>${oMark} is next</span>`
+// Game status.
+const statusDisplay = document.querySelector('.game-status')
+
+// Is our game won or still being played?  Will be a let because the value onChangePasswordSuccess
+let gameActive = true
+
+// current player is...
+let currentPlayer = 'X'
+
+// store our game in an array
+let gameState = ['', '', '', '', '', '', '', '', '']
+
+const winningMessage = () => `${currentPlayer} is the Weiner`
+const drawMessage = () => `Ah poo, no winner.  But ties are cool.`
+const currentPlayerTurn = () => `${currentPlayer} it is your turn`
+
+// here is our start message
+statusDisplay.innerHTML = currentPlayer
+
+function handleCellPlayed (clickedCell, clickedCellIndex) {
+  gameState[clickedCellIndex] = currentPlayer
+  clickedCell.innerHTML = currentPlayer
+}
+
+function handlePlayerChange () {
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
+  statusDisplay.innerHTML = currentPlayerTurn()
+}
+
+const winningConditions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
+function handleResultValidation () {
+  let roundWon = false
+  for (let i = 0; i <= 7; i++) {
+    const winCondition = winningConditions[i]
+    const a = gameState[winCondition[0]]
+    const b = gameState[winCondition[1]]
+    const c = gameState[winCondition[2]]
+    if (a === '' || b === '' || c === '') {
+      continue
+    }
+    if (a === b && b === c) {
+      roundWon = true
+      break
     }
   }
-}
-
-const letterToSymbol = (letter) => letter === 'X' ? xMark : oMark
-
-const playerWin = (letter) => {
-  if (letter === 'X') {
-    playerTurn.innerHTML = `${letterToSymbol(letter)} has won!`
-  } else {
-    playerTurn.innerHTML = `<span>
-      ${letterToSymbol(letter)} has won!
-      </span>`
+  if (roundWon) {
+    statusDisplay.innerHTML = winningMessage()
+    gameActive = false
+    return
   }
+  const roundDraw = !gameState.includes('')
+  if (roundDraw) {
+    statusDisplay.innerHTML = drawMessage()
+    gameActive = false
+    return
+  }
+  handlePlayerChange()
 }
 
-// const gameReset = function () {
-//   turnX = true
-//   playGame = true
-//   resetGame.reset()
-// }
+function handleCellClick (clickedCellEvent) {
+  const clickedCell = clickedCellEvent.target
+  const clickedCellIndex = parseInt(
+    clickedCell.getAttribute('data-cell-index')
+  )
+  if (gameState[clickedCellIndex] !== '' || !gameActive) {
+    return
+  }
+  handleCellPlayed(clickedCell, clickedCellIndex)
+  handleResultValidation()
+}
+
+function handleRestartGame () {
+  gameActive = true
+  currentPlayer = 'X'
+  gameState = ['', '', '', '', '', '', '', '', '']
+  statusDisplay.innerHTML = currentPlayerTurn()
+  document.querySelectorAll('.box')
+    .forEach(box => box.innerHTML = '')
+}
+
+document.querySelectorAll('.box').forEach(box => box.addEventListener('click', handleCellClick))
+document.querySelector('.game-reset-button').addEventListener('click', handleRestartGame)
+
+// // $(() => {
+//   // Start the player at X
+//   let currentPlayer = 'X'
+//
+//   // Our box click event handler
+//   const onBoxClick = (event) => {
+//     // Select the box that was clicked, event.target
+//     const box = $(event.target)
+//     console.log('click', box.data('cell-index'))
+//     // Set the boxs background to `transparent`
+//     // So we can see the image behind the box.
+//     // Then set the text to the current player
+//     box.css('background', 'transparent').text(currentPlayer)
+//
+//     // Change the current player
+//     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+//   }
+//
+//   // Select all of the boxes, $('.box'), add an event listener so that `on`
+//   // every 'click' the `onBoxClick` event handler is called.
+//   $('.box').on('click', onBoxClick)
+// })
 
 module.exports = {
   onNewGame: onNewGame,
-  xOrOClick: xOrOClick,
-  turnX: turnX,
-  letterToSymbol: letterToSymbol,
-  playerWin: playerWin
+  onGamesIndex: onGamesIndex,
+  onGameUpdate: onGameUpdate,
+  handleCellClick: handleCellClick,
+  handleRestartGame: handleRestartGame,
+  handleResultValidation: handleResultValidation,
+  handlePlayerChange: handlePlayerChange,
+  handleCellPlayed: handleCellPlayed
 }

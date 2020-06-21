@@ -4,17 +4,31 @@ const store = require('./../store.js')
 const newGameSuccess = (response) => {
   $('form').trigger('reset')
   $('#message').text('New Game Started')
-  $('#message').show()
-  // $('#message').removeClass().addClass('success')
-  store.user = response.user
+  store.games = response.games
 }
 
-const newGameFail = (response) => {
+const newGameFail = (error) => {
+  // $('form').trigger('reset')
+  if (error) {
+    $('#message').text('Ah, no new game for you.')
+  }
+}
+
+const getGamesSuccess = (response) => {
   $('form').trigger('reset')
-  $('#message').text('Ah, no new game for you.')
+  $('#message').text('Getting all games')
+  console.log(response)
+  store.games = response.games
+}
+
+const getGamesFail = (response) => {
+  $('form').trigger('reset')
+  $('#message').text('No way.  You cannot get the games.')
 }
 
 module.exports = {
   newGameSuccess: newGameSuccess,
-  newGameFail: newGameFail
+  newGameFail: newGameFail,
+  getGamesSuccess: getGamesSuccess,
+  getGamesFail: getGamesFail
 }
