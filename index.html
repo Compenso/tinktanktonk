@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>TicTacToe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic Tac Toe</h1>
+      <h1>Tic <em>Tac</em> Toe</h1>
       <p id='message'>What?</p>
   <section>
     <section>
@@ -50,27 +50,33 @@
     </section>
 
     <section class='text-center'>
-      <button id='newgame' type="submit">Play!</button>
+      <button id='newgame' type="submit">Play New Game!</button>
     </section>
 
 
   <section class='text-center'>
-    <button id='gamesindex' type="submit">Get Games</button>
+    <form id='gameid' class='idofgame'>
+      <button id='gamesindex' class='getgame' type="submit">Get A Game</button>
+      <input name='credentials[id]' type='text' placeholder='game number'>
+    </form>
   </section>
 </section>
 
   <section class="container">
-  <div class="row h-100 board">
-    <div data-cell-index='0' class="col-4 box"></div>
-    <div data-cell-index='1' class="col-4 box"></div>
-    <div data-cell-index='2' class="col-4 box"></div>
-    <div data-cell-index='3' class="col-4 box"></div>
-    <div data-cell-index='4' class="col-4 box"></div>
-    <div data-cell-index='5' class="col-4 box"></div>
-    <div data-cell-index='6' class="col-4 box"></div>
-    <div data-cell-index='7' class="col-4 box"></div>
-    <div data-cell-index='8' class="col-4 box"></div>
-  </div>
+    <h1 class='gameboardtitle'>Tink <em>Tank</em> Tonk</h1>
+    <h4 class='game-status'></h4>
+    <button class='game-reset-button'>Game Reset</button>
+    <div class="row h-100 board">
+      <div data-cell-index='0' class="col-4 box"></div>
+      <div data-cell-index='1' class="col-4 box"></div>
+      <div data-cell-index='2' class="col-4 box"></div>
+      <div data-cell-index='3' class="col-4 box"></div>
+      <div data-cell-index='4' class="col-4 box"></div>
+      <div data-cell-index='5' class="col-4 box"></div>
+      <div data-cell-index='6' class="col-4 box"></div>
+      <div data-cell-index='7' class="col-4 box"></div>
+      <div data-cell-index='8' class="col-4 box"></div>
+    </div>
 </section>
 
     </body>

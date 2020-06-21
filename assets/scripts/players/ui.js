@@ -29,6 +29,11 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#password-change').show()
   $('.board').show()
+  $('.idofgame').show()
+  $('#newgame').show()
+  $('#sign-out').show()
+  $('#change-password').show()
+  $('.gameboardtitle').show()
   store.user = response.user
 }
 
@@ -53,6 +58,10 @@ const onSignOutSuccess = function (response) {
   $('#message').text('Goodbye!')
   $('#sign-in').show()
   $('#change-password').hide()
+  $('.board').hide()
+  $('.idofgame').hide()
+  $('#newgame').hide()
+  $('#sign-out').hide()
   // $('#message').addClass('success')
   store.user = null
 }

@@ -15,7 +15,16 @@ Going to work through the reading and the game.store.index items in order to rec
 
 6-20-20
 Most of the ajax call setup is done.  Game data is being stored for each user.  Clicks are being counted.
-I need to write lines for the rest of the get games data and then build out some checks for the boxes so they can't overwrite each other.  
+I need to write lines for the rest of the get games data and then build out some checks for the boxes so they can't overwrite each other.
+As a current player, I want to see whose turn it is.
+As a user, I want to be able to see when a win occurs.
+
+As a user, I want to be able to sign up.
+After I have signed up, I want to be able to sign in.
+As a user, I want to be able to play a new game.
+After a game has been played to completion, or not, I want to be able to clear the board by starting a new game.
+As a user, I want to be able to get an old game using the id.
+As a user, I want to be able to get a game using the id of the game.
 
 1. Empty [`README.md`](README.md) and fill with your own content.
 1. Replace all instances of `ga-wdi-boston.browser-template` with the name of

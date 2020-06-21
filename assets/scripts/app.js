@@ -12,6 +12,11 @@ const gameEvents = require('./game/events')
 
 $(() => {
   $('.board').hide()
+  $('.idofgame').hide()
+  $('#newgame').hide()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('.gameboardtitle').hide()
   console.log('This should show up first.')
   $('#sign-up').on('submit', playersEvents.onSignUp)
   $('#sign-in').on('submit', playersEvents.onSignIn)
