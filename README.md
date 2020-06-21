@@ -26,6 +26,9 @@ After a game has been played to completion, or not, I want to be able to clear t
 As a user, I want to be able to get an old game using the id.
 As a user, I want to be able to get a game using the id of the game.
 
+
+*** Still trying to merge the branches with the master.
+
 1. Empty [`README.md`](README.md) and fill with your own content.
 1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
     your project.
