@@ -29,6 +29,19 @@ As a user, I want to be able to get a game using the id of the game.
 
 *** Still trying to merge the branches with the master.
 
+6-21-20
+Finally figured out how to merge with the master last night.
+I encountered some new errors this morning.  Debugging now.
+And then, as a user, I want to be able to track each game's state.
+
+Trying to work through tracking my games and my game's states.  I'm hanging out in the handleCellPlayed function.  It must send it's information to the api and the form field.
+
+1:30 now.  I think I need to setup my 'PATCH'.  Reading through the docs one more time...
+
+Happy Father's Day!!!!  Dang.  That was a process from switchback hell.
+Nearing the finish line though.  Fought process and understanding the whole way.  
+
+
 1. Empty [`README.md`](README.md) and fill with your own content.
 1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
     your project.

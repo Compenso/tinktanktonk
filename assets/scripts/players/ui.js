@@ -28,7 +28,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#password-change').show()
-  $('.board').show()
+  // $('.board').show()
   $('.idofgame').show()
   $('#newgame').show()
   $('#sign-out').show()

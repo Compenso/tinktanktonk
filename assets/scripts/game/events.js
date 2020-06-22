@@ -11,7 +11,7 @@ const onNewGame = (event) => {
   const data = getFormFields(form)
   console.log(data)
   console.log('New game in the events.')
-
+  console.log('hanging in the new game ', event.target)
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)
@@ -42,13 +42,16 @@ const onGamesIndex = function (event) {
 }
 
 // Game status.
+// this grabs the class - game-status
+// this will be used to get the class when the text needs changed
 const statusDisplay = document.querySelector('.game-status')
+const gameById = document.querySelector('#gameBoardId')
 
 // Is our game won or still being played?  Will be a let because the value onChangePasswordSuccess
 let gameActive = true
 
 // current player is...
-let currentPlayer = 'X'
+let currentPlayer = '✘'
 
 // store our game in an array
 let gameState = ['', '', '', '', '', '', '', '', '']
@@ -63,11 +66,16 @@ statusDisplay.innerHTML = currentPlayer
 function handleCellPlayed (clickedCell, clickedCellIndex) {
   gameState[clickedCellIndex] = currentPlayer
   clickedCell.innerHTML = currentPlayer
+  const box = $(event.target)
+  console.log('click', box.data('cell-index'))
+  $('.box').on('click', handleCellClick)
+  console.log(box)
 }
 
 function handlePlayerChange () {
-  currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
+  currentPlayer = currentPlayer === '✘' ? 'O' : '✘'
   statusDisplay.innerHTML = currentPlayerTurn()
+  console.log(currentPlayer)
 }
 
 const winningConditions = [
@@ -98,20 +106,22 @@ function handleResultValidation () {
   }
   if (roundWon) {
     statusDisplay.innerHTML = winningMessage()
-    gameActive = false
+    gameActive = roundWon
     return
   }
   const roundDraw = !gameState.includes('')
   if (roundDraw) {
     statusDisplay.innerHTML = drawMessage()
-    gameActive = false
+    gameActive = roundDraw
     return
   }
   handlePlayerChange()
+  // return roundWon
 }
 
 function handleCellClick (clickedCellEvent) {
   const clickedCell = clickedCellEvent.target
+  // onGameUpdate()
   const clickedCellIndex = parseInt(
     clickedCell.getAttribute('data-cell-index')
   )
@@ -119,7 +129,10 @@ function handleCellClick (clickedCellEvent) {
     return
   }
   handleCellPlayed(clickedCell, clickedCellIndex)
+  console.log(gameById.innerHTML)
   handleResultValidation()
+  api.gameUpdate(clickedCellIndex, clickedCell.innerHTML, gameActive, gameById.innerHTML)
+  // console.log(api.gameUpdate())
 }
 
 function handleRestartGame () {
@@ -130,7 +143,6 @@ function handleRestartGame () {
   document.querySelectorAll('.box')
     .forEach(box => box.innerHTML = '')
 }
-
 document.querySelectorAll('.box').forEach(box => box.addEventListener('click', handleCellClick))
 document.querySelector('.game-reset-button').addEventListener('click', handleRestartGame)
 
@@ -139,23 +151,12 @@ document.querySelector('.game-reset-button').addEventListener('click', handleRes
 //   let currentPlayer = 'X'
 //
 //   // Our box click event handler
-//   const onBoxClick = (event) => {
-//     // Select the box that was clicked, event.target
-//     const box = $(event.target)
-//     console.log('click', box.data('cell-index'))
-//     // Set the boxs background to `transparent`
-//     // So we can see the image behind the box.
-//     // Then set the text to the current player
-//     box.css('background', 'transparent').text(currentPlayer)
-//
-//     // Change the current player
-//     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
-//   }
-//
-//   // Select all of the boxes, $('.box'), add an event listener so that `on`
-//   // every 'click' the `onBoxClick` event handler is called.
+// const onBoxClick = (event) => {
+// // Select the box that was clicked, event.target
+//   const box = $(event.target)
+//   console.log('click', box.data('cell-index'))
 //   $('.box').on('click', onBoxClick)
-// })
+// }
 
 module.exports = {
   onNewGame: onNewGame,
@@ -165,5 +166,6 @@ module.exports = {
   handleRestartGame: handleRestartGame,
   handleResultValidation: handleResultValidation,
   handlePlayerChange: handlePlayerChange,
-  handleCellPlayed: handleCellPlayed
+  handleCellPlayed: handleCellPlayed,
+  gameById: gameById
 }
