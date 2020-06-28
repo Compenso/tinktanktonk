@@ -45,9 +45,11 @@ const onGamesIndex = function (event) {
 // this grabs the class - game-status
 // this will be used to get the class when the text needs changed
 const statusDisplay = document.querySelector('.game-status')
+// This will push our current game id into our HTML
+// well, not yet, here the path is just defined
 const gameById = document.querySelector('#gameBoardId')
 
-// Is our game won or still being played?  Will be a let because the value onChangePasswordSuccess
+// what is the state of the game's play: playing, or over
 let gameActive = true
 
 // current player is...
@@ -56,13 +58,19 @@ let currentPlayer = '✘'
 // store our game in an array
 let gameState = ['', '', '', '', '', '', '', '', '']
 
+// our winning/draw/and whose turn messages
 const winningMessage = () => `${currentPlayer} is the Weiner`
 const drawMessage = () => `Ah poo, no winner.  But ties are cool.`
 const currentPlayerTurn = () => `${currentPlayer} it is your turn`
 
-// here is our start message
+// we push html onto the page in our status area
+// we begin by displaying the current player
+// in this case, its always x, or should always start with x
 statusDisplay.innerHTML = currentPlayer
 
+// after a cell has been clicked.
+// we want it to not be clickable anymore
+// we also want to update our current player
 function handleCellPlayed (clickedCell, clickedCellIndex) {
   gameState[clickedCellIndex] = currentPlayer
   clickedCell.innerHTML = currentPlayer
@@ -107,6 +115,7 @@ function handleResultValidation () {
   if (roundWon) {
     statusDisplay.innerHTML = winningMessage()
     gameActive = roundWon
+    gameActive = !true
     return
   }
   const roundDraw = !gameState.includes('')
@@ -120,7 +129,7 @@ function handleResultValidation () {
 
 function handleCellClick (clickedCellEvent) {
   const clickedCell = clickedCellEvent.target
-  // onGameUpdate()
+  // clicked Cell Index parses our data into an integer
   const clickedCellIndex = parseInt(
     clickedCell.getAttribute('data-cell-index')
   )
@@ -140,7 +149,7 @@ function handleRestartGame () {
   gameState = ['', '', '', '', '', '', '', '', '']
   statusDisplay.innerHTML = currentPlayerTurn()
   // when the restart is hit, find all .box and return them
-  // to the starting string
+  // to an empty string
   document.querySelectorAll('.box')
     .forEach((box) => { box.innerHTML = '' })
 }
@@ -151,18 +160,6 @@ document.querySelectorAll('.box').forEach(box => box.addEventListener('click', h
 // select our game reset button by its class
 // add an event listener (click) and name it (handleRestartGame)
 document.querySelector('.game-reset-button').addEventListener('click', handleRestartGame)
-
-// // $(() => {
-//   // Start the player at X
-//   let currentPlayer = 'X'
-//
-//   // Our box click event handler
-// const onBoxClick = (event) => {
-// // Select the box that was clicked, event.target
-//   const box = $(event.target)
-//   console.log('click', box.data('cell-index'))
-//   $('.box').on('click', onBoxClick)
-// }
 
 module.exports = {
   onNewGame: onNewGame,
