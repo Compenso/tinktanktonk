@@ -116,7 +116,6 @@ function handleResultValidation () {
     return
   }
   handlePlayerChange()
-  // return roundWon
 }
 
 function handleCellClick (clickedCellEvent) {
@@ -137,13 +136,20 @@ function handleCellClick (clickedCellEvent) {
 
 function handleRestartGame () {
   gameActive = true
-  currentPlayer = 'X'
+  // currentPlayer = 'X'
   gameState = ['', '', '', '', '', '', '', '', '']
   statusDisplay.innerHTML = currentPlayerTurn()
+  // when the restart is hit, find all .box and return them
+  // to the starting string
   document.querySelectorAll('.box')
-    .forEach(box => box.innerHTML = '')
+    .forEach((box) => { box.innerHTML = '' })
 }
+// select all box classes
+// then, for each box, add an event listener
+// it's a click, and name it (handleCellClick)
 document.querySelectorAll('.box').forEach(box => box.addEventListener('click', handleCellClick))
+// select our game reset button by its class
+// add an event listener (click) and name it (handleRestartGame)
 document.querySelector('.game-reset-button').addEventListener('click', handleRestartGame)
 
 // // $(() => {
