@@ -18,7 +18,7 @@ $(() => {
   $('#change-password').hide()
   $('#sign-out').hide()
   $('.gameboardtitle').hide()
-  console.log('This should show up first.')
+  // console.log('This should show up first.')
   $('#sign-up').on('submit', playersEvents.onSignUp)
   $('#sign-in').on('submit', playersEvents.onSignIn)
   $('#change-password').on('submit', playersEvents.onChangePassword)

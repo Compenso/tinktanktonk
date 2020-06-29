@@ -29,7 +29,7 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#password-change').show()
   // $('.board').show()
-  $('.idofgame').show()
+  // $('.idofgame').show()
   $('#newgame').show()
   $('#sign-out').show()
   $('#change-password').show()

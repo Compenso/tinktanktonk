@@ -3,7 +3,7 @@ const config = require('./../config')
 const store = require('./../store')
 
 const newGame = () => {
-  console.log('new game info here.  At the api.')
+  // console.log('new game info here.  At the api.')
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/games',
@@ -14,7 +14,7 @@ const newGame = () => {
 }
 
 const gameUpdate = (cellIndex, value, over, gameId) => {
-  console.log('update or whatever...')
+  // console.log('update or whatever...')
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/games' + `/${gameId}`,
@@ -34,7 +34,7 @@ const gameUpdate = (cellIndex, value, over, gameId) => {
 }
 
 const gamesIndex = function () {
-  console.log('games index here in api.')
+  // console.log('games index here in api.')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games',

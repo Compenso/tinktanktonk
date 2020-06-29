@@ -11,8 +11,8 @@ const onNewGame = (event) => {
   const form = event.target
   const data = getFormFields(form)
   console.log(data)
-  console.log('New game in the events.')
-  console.log('hanging in the new game ', event.target)
+  // console.log('New game in the events.')
+  // console.log('hanging in the new game ', event.target)
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)
@@ -90,7 +90,7 @@ function handleCellPlayed (clickedCell, clickedCellIndex) {
   gameState[clickedCellIndex] = currentPlayer
   clickedCell.innerHTML = currentPlayer
   const box = $(event.target)
-  console.log('click', box.data('cell-index'))
+  // console.log('click', box.data('cell-index'))
   $('.box').on('click', handleCellClick)
   console.log(box)
 }
@@ -98,7 +98,7 @@ function handleCellPlayed (clickedCell, clickedCellIndex) {
 function handlePlayerChange () {
   currentPlayer = currentPlayer === '✘' ? 'O' : '✘'
   statusDisplay.innerHTML = currentPlayerTurn()
-  console.log(currentPlayer)
+  // console.log(currentPlayer)
 }
 
 const winningConditions = [
@@ -124,7 +124,7 @@ function handleResultValidation () {
     }
     if (a === b && b === c) {
       roundWon = true
-      console.log(a)
+      // console.log(a)
       if (a === '✘') {
         store.x++
         xWinsFunc()
@@ -168,7 +168,7 @@ function handleCellClick (clickedCellEvent) {
   // if it is acticve then handle cell played.
   handleCellPlayed(clickedCell, clickedCellIndex)
   // Show the game id.
-  console.log(gameById.innerHTML, 'game ids are good I guess')
+  // console.log(gameById.innerHTML, 'game ids are good I guess')
   handleResultValidation()
   api.gameUpdate(clickedCellIndex, clickedCell.innerHTML, gameActive, gameById.innerHTML)
 }

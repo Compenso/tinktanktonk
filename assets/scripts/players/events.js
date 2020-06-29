@@ -13,8 +13,8 @@ const onSignUp = function (event) {
   const form = event.target
   const data = getFormFields(form)
   // console log the data that we are getting from the form field
-  console.log(data)
-  console.log('pumkins events center')
+  // console.log(data)
+  // console.log('pumkins events center')
 
   // the api is the next step, but we're addressing it below.
   api.signUp(data)
@@ -23,7 +23,7 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
-  console.log('didja get here')
+  // console.log('didja get here')
   event.preventDefault()
 
   const form = event.target
@@ -35,7 +35,7 @@ const onSignIn = function (event) {
 }
 
 const onChangePassword = function (event) {
-  console.log('Well, have you made it to the password event file?')
+  // console.log('Well, have you made it to the password event file?')
   event.preventDefault()
 
   const form = event.target
@@ -53,7 +53,7 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFail)
 }
 
-console.log('Here we go.')
+// console.log('Here we go.')
 
 module.exports = {
   onSignUp: onSignUp,
