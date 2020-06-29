@@ -42,4 +42,7 @@ Happy Father's Day!!!!  Dang.  That was a process from switchback hell.
 Nearing the finish line though.  Fought process and understanding the whole way.
 
 6-28-20
-Maybe missed a few days.  The javascript!!!!  Damn.  It's so easy to look at other written code and get it, but looking at my own???  This method.  Bugger!    
+Yesterday was a tough day mentally.
+
+6-29-20
+Morning after: things are still working on this end.  Going to try to push the code back up with the grunt deploy.  Nothing was showing correctly last night.  Super frustrating after such a super frustrating day.  
