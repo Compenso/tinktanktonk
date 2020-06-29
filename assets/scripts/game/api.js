@@ -27,7 +27,7 @@ const gameUpdate = (cellIndex, value, over, gameId) => {
           'index': cellIndex,
           'value': value
         },
-        'over': over
+        'over': !over
       }
     }
   })

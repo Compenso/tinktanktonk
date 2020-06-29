@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields.js')
+const store = require('./../store')
 
 const onNewGame = (event) => {
   event.preventDefault()
@@ -63,6 +64,20 @@ const winningMessage = () => `${currentPlayer} is the Weiner`
 const drawMessage = () => `Ah poo, no winner.  But ties are cool.`
 const currentPlayerTurn = () => `${currentPlayer} it is your turn`
 
+// update a number of Wins
+const xWins = $('#xwin')
+const xWinsFunc = function () {
+  xWins.text(store.x)
+}
+const oWins = $('#owin')
+const oWinsFunc = function () {
+  oWins.text(store.o)
+}
+const draw = $('#draw')
+const drawGame = function () {
+  draw.text(store.d)
+}
+
 // we push html onto the page in our status area
 // we begin by displaying the current player
 // in this case, its always x, or should always start with x
@@ -109,19 +124,32 @@ function handleResultValidation () {
     }
     if (a === b && b === c) {
       roundWon = true
+      console.log(a)
+      if (a === '✘') {
+        store.x++
+        xWinsFunc()
+      } else if (a === 'O') {
+        store.o++
+        oWinsFunc()
+      }
+
+      // if a === x, then add one to the store.x
+      // if a === o, then add one to the input field on o
+      // this is deeply flawed if I want to recall game wins.
       break
     }
   }
   if (roundWon) {
     statusDisplay.innerHTML = winningMessage()
-    gameActive = roundWon
-    gameActive = !true
+    gameActive = false
     return
   }
   const roundDraw = !gameState.includes('')
   if (roundDraw) {
     statusDisplay.innerHTML = drawMessage()
-    gameActive = roundDraw
+    gameActive = false
+    store.d++
+    drawGame()
     return
   }
   handlePlayerChange()
@@ -133,19 +161,21 @@ function handleCellClick (clickedCellEvent) {
   const clickedCellIndex = parseInt(
     clickedCell.getAttribute('data-cell-index')
   )
+  // if gamestate index is not blank, or the game is not active return
   if (gameState[clickedCellIndex] !== '' || !gameActive) {
     return
   }
+  // if it is acticve then handle cell played.
   handleCellPlayed(clickedCell, clickedCellIndex)
-  console.log(gameById.innerHTML)
+  // Show the game id.
+  console.log(gameById.innerHTML, 'game ids are good I guess')
   handleResultValidation()
   api.gameUpdate(clickedCellIndex, clickedCell.innerHTML, gameActive, gameById.innerHTML)
-  // console.log(api.gameUpdate())
 }
 
 function handleRestartGame () {
   gameActive = true
-  // currentPlayer = 'X'
+  currentPlayer = '✘'
   gameState = ['', '', '', '', '', '', '', '', '']
   statusDisplay.innerHTML = currentPlayerTurn()
   // when the restart is hit, find all .box and return them
@@ -170,5 +200,8 @@ module.exports = {
   handleResultValidation: handleResultValidation,
   handlePlayerChange: handlePlayerChange,
   handleCellPlayed: handleCellPlayed,
-  gameById: gameById
+  gameById: gameById,
+  xWinsFunc: xWinsFunc,
+  oWinsFunc: oWinsFunc,
+  drawGame: drawGame
 }

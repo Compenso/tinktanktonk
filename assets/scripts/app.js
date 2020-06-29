@@ -11,6 +11,7 @@ const playersEvents = require('./players/events')
 const gameEvents = require('./game/events')
 
 $(() => {
+  $('#chickendinner').hide()
   $('.board').hide()
   $('.idofgame').hide()
   $('#newgame').hide()
