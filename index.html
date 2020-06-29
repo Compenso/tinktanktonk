@@ -14,71 +14,77 @@
     <body>
       <h1>Tic <em>Tac</em> Toe</h1>
       <p id='message'>What?</p>
-  <section>
-    <section>
-      <form id="sign-up" class='enroll'>
-        <h6>Sign up with email and password</h6>
-        <input name="credentials[email]" type="text" placeholder='email'>
-        <input name="credentials[password]" type="password" placeholder="password">
-        <input name="credentials[password_confirmation]" type="password" placeholder="password">
-        <button type="submit">Sign Up</button>
-      </form>
-    </section>
+      <section>
+        <section>
+          <form id="sign-up" class='enroll'>
+            <h6>Sign up with email and password</h6>
+            <input name="credentials[email]" type="text" placeholder='email'>
+            <input name="credentials[password]" type="password" placeholder="password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="password">
+            <button type="submit">Sign Up</button>
+          </form>
+        </section>
 
-    <section>
-      <form id="sign-in" class='enroll'>
-        <h6>Sign In</h6>
-        <input name="credentials[email]" type="text" placeholder="Your Email">
-        <input name="credentials[password]" type="password" placeholder="Password">
-        <button type="submit">Submit</button>
-      </form>
-    </section>
+        <section>
+          <form id="sign-in" class='enroll'>
+            <h6>Sign In</h6>
+            <input name="credentials[email]" type="text" placeholder="Your Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <button type="submit">Submit</button>
+          </form>
+        </section>
 
-    <section>
-      <form id="change-password" class='enroll'>
-        <h6>Change Password Ẍ</h6>
-        <input type="password" name="passwords[old]" placeholder="Old password">
-        <input type="password" name="passwords[new]" placeholder="New password">
-        <button type="submit">Change Password</button>
-      </form>
-    </section>
+        <section>
+          <form id="change-password" class='enroll'>
+            <h6>Change Password Ẍ</h6>
+            <input type="password" name="passwords[old]" placeholder="Old password">
+            <input type="password" name="passwords[new]" placeholder="New password">
+            <button type="submit">Change Password</button>
+          </form>
+        </section>
 
-    <section>
-      <form id="sign-out" class='enroll'>
-        <button type="submit">Sign Out</button>
-      </form>
-    </section>
+        <section>
+          <form id="sign-out" class='enroll'>
+            <button type="submit">Sign Out</button>
+          </form>
+        </section>
 
-    <section class='text-center'>
-      <button id='newgame' type="submit">Play New Game!</button>
-    </section>
+        <section class='text-center'>
+          <button id='newgame' class='game-reset-button' type="submit">Play New Game!</button>
+        </section>
 
 
-  <section class='text-center'>
-    <form id='gameid' class='idofgame'>
-      <button id='gamesindex' class='getgame' type="submit">Get A Game</button>
-      <input name='credentials[id]' type='text' placeholder='game number'>
-    </form>
-  </section>
-</section>
+      <section class='text-center'>
+        <form id='gameid' class='idofgame'>
+          <button id='gamesindex' class='getgame' type="submit">Get A Game</button>
+        </form>
+      </section>
+      </section>
 
-  <section class="container">
-    <h1 class='gameboardtitle'>Tink <em>Tank</em> Tonk</h1>
-    <h2 id='gameBoardId'></h2>
-    <h4 class='game-status'></h4>
-    <button class='game-reset-button'>Game Reset</button>
-    <div class="row h-100 board">
-      <div data-cell-index='0' class="col-4 box"></div>
-      <div data-cell-index='1' class="col-4 box"></div>
-      <div data-cell-index='2' class="col-4 box"></div>
-      <div data-cell-index='3' class="col-4 box"></div>
-      <div data-cell-index='4' class="col-4 box"></div>
-      <div data-cell-index='5' class="col-4 box"></div>
-      <div data-cell-index='6' class="col-4 box"></div>
-      <div data-cell-index='7' class="col-4 box"></div>
-      <div data-cell-index='8' class="col-4 box"></div>
-    </div>
-</section>
+      <section class="container">
+      <h1 class='gameboardtitle'>Tink <em>Tank</em> Tonk</h1>
+      <h2 id='gameBoardId'></h2>
+      <h4 class='game-status'></h4>
+        <div id='chickendinner'>
+          <h6>X Wins</h6>
+          <h6 id='xwin'>0</h6>
+          <h6> O Wins</h6>
+          <h6 id='owin'>0</h6>
+          <h6>Draw</h6>
+          <h6 id='draw'>0</h6>
+        </div>
+        <div class="row h-100 board">
+          <div data-cell-index='0' class="col-4 box"></div>
+          <div data-cell-index='1' class="col-4 box"></div>
+          <div data-cell-index='2' class="col-4 box"></div>
+          <div data-cell-index='3' class="col-4 box"></div>
+          <div data-cell-index='4' class="col-4 box"></div>
+          <div data-cell-index='5' class="col-4 box"></div>
+          <div data-cell-index='6' class="col-4 box"></div>
+          <div data-cell-index='7' class="col-4 box"></div>
+          <div data-cell-index='8' class="col-4 box"></div>
+        </div>
+      </section>
 
     </body>
 </html>

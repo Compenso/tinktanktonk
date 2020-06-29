@@ -8,8 +8,10 @@ const newGameSuccess = (response) => {
   $('#gameBoardId').text(response.game._id)
   // console.log(gameEvents)
   $('.board').show()
+  $('#chickendinner').show()
+  $('.getgame').show()
   store.games = response.games
-  console.log(response.game._id)
+  // console.log(response.game._id)
   // events.gameById
 }
 
@@ -23,7 +25,7 @@ const newGameFail = (error) => {
 const getGamesSuccess = (response) => {
   $('form').trigger('reset')
   $('#message').text('Getting all games')
-  console.log('game', response)
+  // console.log('game', response)
   store.games = response.games
 }
 
