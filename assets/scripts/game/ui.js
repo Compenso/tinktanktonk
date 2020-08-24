@@ -9,6 +9,7 @@ const newGameSuccess = (response) => {
   $('.getgame').show()
   $('#message').hide()
   $('#change-password').hide()
+  $('.game-status').show()
   store.games = response.games
 }
 
