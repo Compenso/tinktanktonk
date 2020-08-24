@@ -33,7 +33,6 @@ const onSignInSuccess = function (response) {
   $('#newgame').show()
   $('#sign-out').show()
   $('#change-password').show()
-  $('.gameboardtitle').show()
   store.user = response.user
 }
 
@@ -57,12 +56,13 @@ const onSignOutSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Goodbye!')
   $('#sign-in').show()
+  $('#sign-up').show()
   $('#change-password').hide()
   $('.board').hide()
-  $('.idofgame').hide()
   $('#newgame').hide()
   $('#sign-out').hide()
-  // $('#message').addClass('success')
+  $('#chickendinner').hide()
+  $('.game-status').hide()
   store.user = null
 }
 

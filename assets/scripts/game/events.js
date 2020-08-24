@@ -11,8 +11,6 @@ const onNewGame = (event) => {
   const form = event.target
   const data = getFormFields(form)
   console.log(data)
-  // console.log('New game in the events.')
-  // console.log('hanging in the new game ', event.target)
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFail)

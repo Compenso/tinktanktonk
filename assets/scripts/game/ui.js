@@ -3,16 +3,13 @@ const store = require('./../store.js')
 // const gameEvents = require('./events')
 
 const newGameSuccess = (response) => {
-  // $('form').trigger('reset')
-  $('#message').text(response.game._id)
-  $('#gameBoardId').text(response.game._id)
-  // console.log(gameEvents)
+  $('form').trigger('reset')
   $('.board').show()
   $('#chickendinner').show()
   $('.getgame').show()
+  $('#message').hide()
+  $('#change-password').hide()
   store.games = response.games
-  // console.log(response.game._id)
-  // events.gameById
 }
 
 const newGameFail = (error) => {
