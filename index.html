@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TicTacToe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic <em>Tac</em> Toe. <span id='wu'>Wu.</span></h1>
+      <h2 id='message'><span>Hello!  Are you ready to Tic Tac Toe!</span></h2>
+      <section>
+        <section>
+          <form id="sign-up" class='enroll'>
+            <h3>Sign up with email and password</h3>
+            <input name="credentials[email]" type="text" placeholder='email'>
+            <input name="credentials[password]" type="password" placeholder="password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="password">
+            <button type="submit">Sign Up</button>
+          </form>
+        </section>
+
+        <section>
+          <form id="sign-in" class='enroll'>
+            <h3>Sign In</h3>
+            <input name="credentials[email]" type="text" placeholder="Your Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+
+        <section>
+          <form id="change-password" class='enroll'>
+            <h3>Change Password Ẍ</h3>
+            <input type="password" name="passwords[old]" placeholder="Old password">
+            <input type="password" name="passwords[new]" placeholder="New password">
+            <button type="submit">Change Password</button>
+          </form>
+        </section>
+
+        <section>
+          <form id="sign-out" class='enroll'>
+            <button type="submit">Sign Out</button>
+          </form>
+        </section>
+
+        <section class='text-center'>
+          <button id='newgame' class='game-reset-button' type="submit">Play New Game!</button>
+        </section>
+
+
+      <section class='text-center'>
+        <form id='gameid' class='idofgame'>
+          <button id='gamesindex' class='getgame' type="submit">Get A Game</button>
+        </form>
+      </section>
+      </section>
+
+      <section class="flex-container">
+      <h2 id='gameBoardId'></h2>
+      <h4 class='game-status'></h4>
+        <div class="row h-100 board">
+          <div data-cell-index='0' class="col-4 box"></div>
+          <div data-cell-index='1' class="col-4 box"></div>
+          <div data-cell-index='2' class="col-4 box"></div>
+          <div data-cell-index='3' class="col-4 box"></div>
+          <div data-cell-index='4' class="col-4 box"></div>
+          <div data-cell-index='5' class="col-4 box"></div>
+          <div data-cell-index='6' class="col-4 box"></div>
+          <div data-cell-index='7' class="col-4 box"></div>
+          <div data-cell-index='8' class="col-4 box"></div>
+        </div>
+        <div id='chickendinner'>
+          <h6>X Wins</h6>
+          <h6 id='xwin'>0</h6>
+          <h6> O Wins</h6>
+          <h6 id='owin'>0</h6>
+          <h6>Draw</h6>
+          <h6 id='draw'>0</h6>
+        </div>
+      </section>
+
+    </body>
+</html>
